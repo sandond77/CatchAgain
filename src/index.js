@@ -4,6 +4,4 @@ import StorePicker from './components/StorePicker';
 import App from './components/App';
 import './css/style.css';
 
-render(<StorePicker/>, document.querySelector('#main'));
-
-export default StorePicker;
+render(<App />, document.querySelector('#main'));
