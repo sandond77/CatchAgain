@@ -10,7 +10,14 @@ class App extends Component {
 	}
 
 	addFish = (fish) => {
-		console.log('adding fish');
+		//Take a copy of the existing state
+		const fishes = {...this.state.fishes};
+		//Adding our new fish to that fishes variable
+		fishes[`fish${Date.now()}`] = fish;
+		//Setting the that fishes object as new state
+		this.setState({
+			fishes
+		})
 	};
 
 	render() {
