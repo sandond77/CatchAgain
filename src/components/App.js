@@ -17,21 +17,33 @@ class App extends Component {
 		//Adding our new fish to that fishes variable
 		fishes[`fish${Date.now()}`] = fish;
 		//Setting the that fishes object as new state
-		this.setState({
-			fishes
-		})
+		this.setState({fishes});
 	};
 
 	loadSampleFishes = () =>{
 		this.setState({fishes: sampleFishes });
 	}
+
+	addToOrder = (key) => {
+		const order = {...this.state.order};
+		order[key]= order[key] + 1 || 1;
+		this.setState({order});
+	}
+
 	render() {
 		return (
 			<div className="catch-of-the-day">
 				<div className="menu">	
 					<Header tagline="Fresh Seafood Market"/>
-					<ul className="fishes">
-						{Object.keys(this.state.fishes).map(key => <Fish key={key} details={this.state.fishes[key]}/>)}
+					<ul className="fishes" >
+						{Object.keys(this.state.fishes).map(key => 
+							<Fish 
+								key={key} 
+								index={key}
+								details={this.state.fishes[key]}
+								addToOrder={this.addToOrder}
+							/>
+						)}
 					</ul>
 				</div>
 				<Order />
@@ -44,4 +56,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default App; 
