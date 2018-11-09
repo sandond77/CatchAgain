@@ -21,7 +21,7 @@ class StorePicker extends Component {
 					ref={this.myInput} 
 					defaultValue={ getFunName() }
 				/>
-				<button type="submit"> Visit Store ➡️ </button>
+				<button type="submit"> Visit Store <span role="img" aria-label="right-arrow">➡️</span></button>
 			</form>
 		);
 	}

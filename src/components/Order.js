@@ -33,7 +33,9 @@ class Order extends Component {
 						</TransitionGroup>
 					lbs {fish.name}
 					{formatPrice(count*fish.price)}
-					<button onClick={()=> this.props.deleteFromOrder(key)}>❌</button>
+					<button onClick={()=> this.props.deleteFromOrder(key)}>
+						<span role="img" aria-label="x">❌</span>
+					</button>
 					</span>
 				</li>				
 			</CSSTransition>
