@@ -14,7 +14,7 @@ class App extends Component {
 	}
 
 	static propTypes = {
-		match: this.PropTypes.object
+		match: PropTypes.object
 	}
 
 	componentDidMount(){

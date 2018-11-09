@@ -10,7 +10,7 @@ class AddFishForm extends Component {
 
 	static propTypes = {
 		addFish: PropTypes.func
-	}
+	};
 
 	createFish = (event) => {
 		event.preventDefault();
