@@ -71,6 +71,7 @@ class App extends Component {
 		const order = {...this.state.order};
 		delete order[key];
 		this.setState({order});
+		console.log('deleted')
 	}
 
 	render() {

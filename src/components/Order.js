@@ -14,7 +14,7 @@ class Order extends Component {
 			<li key={key}>
 				{count} lbs {fish.name}
 				{formatPrice(count*fish.price)}
-				<button onClick={()=> this.props.deleteFromOrder(this.props.index)}>X</button>
+				<button onClick={()=> this.props.deleteFromOrder(key)}>X</button>
 			</li>
 		)
 	}
