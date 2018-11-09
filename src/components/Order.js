@@ -7,10 +7,15 @@ class Order extends Component {
 		const fish = this.props.fishes[key];
 		const count = this.props.order[key];
 		const isAvailable = fish && fish.status === 'available';
+		const transitionOptions = {
+			classNames: "order",
+			key,
+			timeout: { enter:500, exit:500}
+		}
 		if(!fish) return null;
 		if(!isAvailable){
 			return (
-				<CSSTransition classNames="order" key={key} timeout={{ enter:500, exit:500}}>
+				<CSSTransition {...transitionOptions}>
 					<li key={key}> 
 						Sorry { fish ? fish.name : 'fish'} is no longer available 
 					</li>
@@ -18,11 +23,11 @@ class Order extends Component {
 			)	
 		}
 		return (
-			<CSSTransition classNames="order" key={key} timeout={{ enter:500, exit:500}}>
+			<CSSTransition {...transitionOptions}>
 				<li key={key}>
 					<span>
 						<TransitionGroup component="span" className="count">
-							<CSSTransition classNames="count" key={count} timeout={{enter:5000, exit: 5000}}>
+							<CSSTransition {...transitionOptions}>
 							<span> {count} </span>
 							</CSSTransition>
 						</TransitionGroup>

@@ -25,3 +25,22 @@
     padding: 0 !important;
   }
 }
+
+.count-enter {
+  transition: 0.5s;
+  transform: translateY(100%);
+  &.count-enter-active {
+    transform: translateY(0);
+  }
+}
+
+.count-exit {
+  transform: translateY(0);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: 0.5s;
+  &.count-exit-ative{
+    transform: translateY(-100%);
+  }
+}
