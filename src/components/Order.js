@@ -10,7 +10,7 @@ class Order extends Component {
 		if(!fish) return null;
 		if(!isAvailable){
 			return (
-				<CSSTransition classNames="order" key={key} timeout={{ enter:250, exit:250}}>
+				<CSSTransition classNames="order" key={key} timeout={{ enter:500, exit:500}}>
 					<li key={key}> 
 						Sorry { fish ? fish.name : 'fish'} is no longer available 
 					</li>
@@ -18,7 +18,7 @@ class Order extends Component {
 			)	
 		}
 		return (
-			<CSSTransition classNames="order" key={key} timeout={{ enter:250, exit:250}}>
+			<CSSTransition classNames="order" key={key} timeout={{ enter:500, exit:500}}>
 				<li key={key}>
 					{count} lbs {fish.name}
 					{formatPrice(count*fish.price)}
