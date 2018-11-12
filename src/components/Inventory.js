@@ -18,9 +18,17 @@ class Inventory extends Component {
 		uid: null,
 		owner: null
 	}
+
+	componentDidMount(){
+		firebase.auth().onAuthStateChanged(user => {
+			if(user){
+				this.authHandler({ user })
+			}
+		})
+	}
+
 	authHandler = async (authData) => {
 		const store = await base.fetch(this.props.storeId, {context: this});
-		console.log(store)
 		if(!store.owner){
 			await base.post(`${this.props.storeId}/owner`, {
 				data: authData.user.uid
@@ -41,7 +49,6 @@ class Inventory extends Component {
 	}
 
 	logout = async () => {
-		console.log('logging out');
 		await firebase.auth().signOut()
 		this.setState({
 			uid: null
