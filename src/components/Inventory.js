@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import firebase from 'firebase';
-import { firebaseApp } from '../base';
+import base, { firebaseApp } from '../base';
 import AddFishForm from './AddFishForm';
 import EditFishForm from './EditFishForm';
 import Login from './Login';
@@ -14,8 +14,22 @@ class Inventory extends Component {
 		loadSampleFishes: PropTypes.func
 	}
 
+	state = {
+		uid: null,
+		owner: null
+	}
 	authHandler = async (authData) => {
-		console.log(authData);
+		const store = await base.fetch(this.props.storeId, {context: this});
+		console.log(store)
+		if(!store.owner){
+			await base.post(`${this.props.storeId}/owner`, {
+				data: authData.user.uid
+			});
+		}
+		this.setState({
+			uid: authData.user.uid,
+			owner: store.owner || authData.user.uid
+		})
 	};
 
 	authenticate = (provider) => {
