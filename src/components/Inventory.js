@@ -40,7 +40,17 @@ class Inventory extends Component {
 			.then(this.authHandler);
 	}
 	render() {
-		return (<Login authenticate={this.authenticate} />)
+		if (!this.state.uid){
+			return (<Login authenticate={this.authenticate} />)
+		}
+
+		if (this.state.uid !== this.state.owner){
+			return (
+				<div>
+					<p> Sorry you are not the store owner!</p>
+				</div>
+			)
+		}
 		return (
 			<div className="inventory">
 				<h2>Inventory</h2>
