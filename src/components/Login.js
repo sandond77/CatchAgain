@@ -15,7 +15,7 @@ const Login = (props) => (
 			className='twitter'
 			onClick={()=>props.authenticate("Twitter")}
 		>
-		Log in With Twitter (broken)
+		Log in With Twitter
 		</button>
 		<button 
 			className='facebook'
